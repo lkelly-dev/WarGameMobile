@@ -60,15 +60,20 @@ const styles = StyleSheet.create({
     borderWidth: 3,
         borderRadius: 3,
         borderColor: 'grey',
-        width: 300,
+        width: 150,
         height: 220,
         padding: 10,
         margin: 10,
         alignItems: 'center',
+        backgroundColor: 'white'
   },
-  text: {
+  textBig: {
     fontSize: 30,
   },
+  textSmall:{
+    alignItems: 'center',
+    fontSize: 22
+  }
 });
 
 
@@ -162,15 +167,15 @@ class FullGame extends Component {
           title="Settings"
         />
             <View style={styles.card} className="card playing-card">
-                <Text style={styles.text}>{this.state.PlayerOneDeck[0]}</Text>
+                <Text style={styles.textBig}>{this.state.PlayerOneDeck[0]}</Text>
                 <View className="win-count">
-                    <Text style={styles.text}>Cards remaining: {this.state.PlayerOneDeck.length}</Text>
+                    <Text style={styles.textSmall}>Cards remaining: {this.state.PlayerOneDeck.length}</Text>
                 </View>
             </View>
             <View style={styles.card} className="card playing-card">
-                <Text style={styles.text}>{this.state.PlayerTwoDeck[0]}</Text>
+                <Text style={styles.textBig}>{this.state.PlayerTwoDeck[0]}</Text>
                 <View className="win-count">
-                    <Text style={styles.text}>Cards remaining: {this.state.PlayerTwoDeck.length}</Text>
+                    <Text style={styles.textSmall}>Cards remaining: {this.state.PlayerTwoDeck.length}</Text>
                 </View>
             </View>
             <Button title="GO TO WAR!" className="button" onPress={this.handleClick.bind(this)}/>
