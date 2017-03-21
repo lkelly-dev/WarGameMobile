@@ -1,28 +1,39 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View } from 'react-native';
 import FullGame from './Game';
+import { Constants } from 'expo';
+
+import { StackNavigator } from 'react-navigation';
+
+class Settings extends React.Component {
+  static navigationOptions = {
+     title: 'Settings',
+   };
+  render() {
+    return <Text>List of all settings</Text>
+  }
+}
+
+const MainScreenNavigator = StackNavigator({
+  Main: {screen: FullGame},
+  All: {screen: Settings}
+});
+
+
 
 export default class App extends React.Component {
   render() {
+    console.log(Constants.statusBarHeight + "Hello");
     return (
-       <View style={styles.container}>
-         
-      <FullGame />
-      </View>
+      <MainScreenNavigator style={styles.container}/>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+
+    marginTop: Constants.statusBarHeight,
+
   },
 });
-
-{/* <View style={styles.container}>
-  <Text>Open up App.js to start working on your app!</Text>
-  <Text>Changes you make will automatically happen.</Text>
-</View> */}

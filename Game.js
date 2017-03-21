@@ -48,12 +48,20 @@ function shuffleCards(cardArray) {
 
 
 const styles = StyleSheet.create({
+  container:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 5
+  },
+  settings: {
+
+  },
   card: {
     borderWidth: 3,
         borderRadius: 3,
         borderColor: 'grey',
         width: 300,
-        height: 250,
+        height: 220,
         padding: 10,
         margin: 10,
         alignItems: 'center',
@@ -76,6 +84,8 @@ class FullGame extends Component {
             GameStatus: 0
         };
     }
+
+
 
     beginGame() {
         console.log("Let the games begin!");
@@ -128,8 +138,29 @@ class FullGame extends Component {
             this.continueGame();
         }
     }
+    static navigationOptions = {
+       title: 'Home',
+     };
+//     static navigationOptions = {
+//   header: {
+//     right: <Button onPress={() => navigate('All')}
+//     title="Settings" />,
+//   },
+// };
+
+
+
+
+
     render() {
-        return <View>
+      const { navigate } = this.props.navigation;
+        return <View style={styles.container}>
+
+          <Button
+          style={styles.settings}
+          onPress={() => navigate('All')}
+          title="Settings"
+        />
             <View style={styles.card} className="card playing-card">
                 <Text style={styles.text}>{this.state.PlayerOneDeck[0]}</Text>
                 <View className="win-count">
